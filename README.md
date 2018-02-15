@@ -25,7 +25,7 @@ Nous avons utilisé 3 tabbles:
 
 # Sitemap
 
-![](/image/sitemap.png)
+![](/sitemap.png)
 
 # CRUD 
 
