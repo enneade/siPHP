@@ -5,24 +5,55 @@ Semaine intensive PHP
 
 L'épreuve du feu ...
 
-Nous avons utilisé 3 tabbles:
+Nous avons utilisé 5 tabbles:
 
 1. inscription
-  * nom (string 50)
-  * prenom (string 50)
-  * naissance (string 50)
-  * session (string 50)
-  * email (string 50)
-  * telephone (string 50)
-  * password (string 50)
-  * photo (string 50)
+  * id int(11)
+  * nom (VARCHAR 50)
+  * prenom (VARCHAR 50)
+  * naissance (VARCHAR 50)
+  * session (VARCHAR 50)
+  * email (VARCHAR 50)
+  * telephone (VARCHAR 50)
+  * password (VARCHAR 50)
+  * photo (VARCHAR 50)
 
 2. realisation
-  * 
+ * id int(11)
+ * url1 VARCHAR(50)
+ * titre VARCHAR(30)
+ * commentaire VARCHAR(100)
+ * email VARCHAR (30)
 
 3. message
-  *
-
+  * id int(11)
+  * nom (VARCHAR 20)
+  * prenom (VARCHAR 30)
+  * message TEXT
+  * type (VARCHAR 20)
+  * email (VARCHAR 50)
+  * telephone (VARCHAR 50)
+  * session (VARCHAR 50)
+  * horaire (VARCHAR 50)
+  
+4. favori
+ * id int(11)
+ * url VARCHAR(50)
+ * titre VARCHAR(30)
+ * commentaire VARCHAR(100)
+ * nom VARCHAR(20)
+ * prenom VARCHAR(50)
+ * email VARCHAR (30)
+ 
+ 5. competence
+ * id int(11)
+ * html VARCHAR(10)
+ * css VARCHAR(10)
+ * javascript VARCHAR(10)
+ * php VARCHAR(10)
+ * ux VARCHAR(10)
+ * commentaire VARCHAR(100)
+ * email VARCHAR(40)
 # Sitemap
 
 ![](/sitemap.png)
@@ -33,21 +64,15 @@ Nous avons utilisé 3 tabbles:
 
 ### Formulaire
 1. GET /inscription.php
-2. GET
-3. GET
 
 ### Ajout dans la base de données
 ```sql
-INSERT INTO
-`inscription`
-(`nom`, `prenom`, `naissance`, `session`, `email`, `telephone`, `password`, `photo`)
-VALUES
-('Salade', 'Filling', '28/12/1996', 'w1', 'test@gmail.com', '+33123456789', 'root', 'image/test.jpg')
-;
+CREATE DATABASE forum;
+USE forum;
+CREATE TABLE inscription (id int(11), nom (VARCHAR 50), prenom (VARCHAR 50), naissance (VARCHAR 50), session (VARCHAR 50), email (VARCHAR 50), telephone (VARCHAR 50), password (VARCHAR 50), photo (VARCHAR 50));
+
 ```
 1. POST /inscription.php
-2. POST
-3. POST
 
 ## Read
 
@@ -55,44 +80,28 @@ VALUES
 ```sql
 SELECT `id`, `nom`, `prenom`, `naissance`, `session`, `email`, `telephone`, `password`, `photo` FROM `inscription`;
 ```
-1. GET /.php
-2. GET /.php
-3. GET /.php
 
 ### Visualiser les détails
 ```sql
 SELECT `id`, `nom`, `prenom`, `naissance`, `session`, `email`, `telephone`, `password`, `photo` FROM `inscription` WHERE id = 1;
 ```
-1. GET /.php?id=:id
-2. GET /.php?id=:id
-3. GET /.php?id=:id
+1. GET /profil.php
 
 ## Update
 
 ### Formulaire
-1. GET /.php?id=:id
-2. GET /.php?id=:id
-3. GET /.php?id=:id
+1. GET /profil.php
 
 ### Modifier les données dans la base
 ```sql
 UPDATE `inscription` SET `email` = "newtest@gmail.com" WHERE id = 1;
 ``` 
-1. POST /.php
-2. POST /.php
-3. POST /.php
+1. POST /profil.php
 
 ## Delete
-
-### demande de confirmation
-1. GET /.php?id=:id
-2. GET /.php?id=:id
-3. GET /.php?id=:id
 
 ### Effacer dans la base
 ```sql
 DELETE FROM `insciption` WHERE id = 1;
 ```
-1. POST /.php
-2. POST /.php
-3. POST /.php
+1. POST /profil.php
